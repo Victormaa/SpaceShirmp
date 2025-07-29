@@ -3,7 +3,62 @@ guid: c36a18c9db1829145b4d573cec80ca21
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S10_GEO
+    second: {fileID: 2100000, guid: 799aa5fa0f8743c4ea31ba1f9fb4d9de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S11_MAT
+    second: {fileID: 2100000, guid: 11b119465b0c3f94bb762576ac11fe54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S12_GEO
+    second: {fileID: 2100000, guid: f1203c021a77dcc44bfaa5032ae5ee91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S2_MAT
+    second: {fileID: 2100000, guid: d871c99c49dcaaa42b91d507cbfd2123, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S3_GEO
+    second: {fileID: 2100000, guid: 66c6151c9d85e9049bf6605d626eefdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S4_MAT
+    second: {fileID: 2100000, guid: 27d9aebed32fd4744a11f3798fb252bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S5_GEO
+    second: {fileID: 2100000, guid: af32f4fa278c8664396601dfb1f480c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S6_GEO
+    second: {fileID: 2100000, guid: 176af458ed6b06f41a8c10c0ffd688a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S7_GEO
+    second: {fileID: 2100000, guid: 0d001a465618bba4484be248eb736bbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S8_GEO
+    second: {fileID: 2100000, guid: 69c67225ef1c4004f8540c74e86815c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S9_GEO
+    second: {fileID: 2100000, guid: c618f18fe622f3b4cb942417972af247, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -31,11 +86,40 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -90,7 +174,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 50
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
