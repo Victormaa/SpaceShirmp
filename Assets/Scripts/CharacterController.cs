@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float moveSpeed = 5f; // 移动速度
+    public Animator anim;
 
     void Update()
     {
@@ -17,5 +18,26 @@ public class CharacterController : MonoBehaviour
 
         // 应用移动
         transform.Translate(move, Space.World);
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            anim.Play("Idle1");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            anim.Play("Idle2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            anim.Play("MoveForward");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            anim.Play("MoveBack");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            anim.Play("Attack");
+        }
     }
 }
