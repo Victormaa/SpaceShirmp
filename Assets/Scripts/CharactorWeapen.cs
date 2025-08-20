@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CharactorWeapen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject bulletPrefab;
+    public void ShootBullet()
     {
-        
-    }
+        // 在这里实现攻击逻辑（例如生成子弹）
+        var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward, ForceMode.Impulse);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        Debug.Log("ShootBullet called at frame: " + Time.frameCount);
     }
 }

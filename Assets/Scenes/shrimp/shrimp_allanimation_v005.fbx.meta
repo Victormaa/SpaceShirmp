@@ -170,7 +170,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.49995056
+      - time: 0.40998012
         functionName: ShootBullet
         data: 
         objectReferenceParameter: {instanceID: 0}

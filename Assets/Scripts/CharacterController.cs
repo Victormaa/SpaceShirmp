@@ -8,8 +8,6 @@ public class CharacterController : MonoBehaviour
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志
 
-    public GameObject bulletPrefab;
-
     void Update()
     {
         // 如果正在攻击，则直接返回，不处理移动输入
@@ -102,10 +100,6 @@ public class CharacterController : MonoBehaviour
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(animName) && stateInfo.normalizedTime >= 1f;
-    }
-    public void ShootTheShrimpShell()
-    {
-        Instantiate(bulletPrefab,transform.position,Quaternion.identity);
     }
     // 更好的方法：使用Animation Event在攻击动画最后一帧调用这个方法
     public void OnAttackComplete()
