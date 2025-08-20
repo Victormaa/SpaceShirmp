@@ -41,8 +41,6 @@ public class CharacterController : MonoBehaviour
         // 处理移动和动画
         if (hasInput)
         {
-            //isMoving = true;
-            //idleTimer = 0f;
             idleCount = 0;
 
             Vector3 move = new Vector3(0, moveY, moveZ) * moveSpeed * Time.deltaTime;
@@ -105,12 +103,10 @@ public class CharacterController : MonoBehaviour
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(animName) && stateInfo.normalizedTime >= 1f;
     }
-
     public void ShootTheShrimpShell()
     {
         Instantiate(bulletPrefab,transform.position,Quaternion.identity);
     }
-
     // 更好的方法：使用Animation Event在攻击动画最后一帧调用这个方法
     public void OnAttackComplete()
     {
