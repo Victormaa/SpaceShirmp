@@ -30,6 +30,7 @@ public class CharacterController : MonoBehaviour
             return; // 立即返回，确保攻击动画开始时就不处理移动
         }
 
+
         // 获取输入
         float moveZ = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
