@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public bool isUseNewDir = false;
     public float moveSpeed = 5f;
     public Animator anim;
 
@@ -40,8 +41,11 @@ public class CharacterController : MonoBehaviour
         if (hasInput)
         {
             idleCount = 0;
-
+            
             Vector3 move = new Vector3(0, moveY, moveZ) * moveSpeed * Time.deltaTime;
+            if (isUseNewDir)
+                move = new Vector3(moveZ, moveY, 0) * moveSpeed * Time.deltaTime;
+
             transform.Translate(move, Space.World);
 
             if (moveY > 0.1f || moveZ > 0.1f)
