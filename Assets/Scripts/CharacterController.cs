@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
 
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志
+    private bool isAvoiding = false; // 新增：攻击状态标志
 
     void Update()
     {
@@ -22,6 +23,15 @@ public class CharacterController : MonoBehaviour
             return;
         }
 
+        if (isAvoiding)
+        {
+            if (IsAnimComplete("Idle2"))
+            {
+                isAvoiding = false;
+            }
+            return;
+        }
+
         // 攻击输入检测（只有在非攻击状态时才能触发）
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,6 +40,12 @@ public class CharacterController : MonoBehaviour
             return; // 立即返回，确保攻击动画开始时就不处理移动
         }
 
+        if (Input.GetMouseButtonUp(1))
+        {
+            anim.Play("Idle2");
+            isAvoiding = true;
+            return; 
+        }
 
         // 获取输入
         float moveZ = Input.GetAxis("Horizontal");
