@@ -7,6 +7,9 @@ public enum AIState
     Dashing,    // 冲刺中
     Braking     // 刹车中
 }
+// 1. 入场 - 待机 - 冲刺 - 冲出场外 Destory()
+// 2. 入场 - 待机 - 冲刺 - 击中虾 游戏结束() - 
+
 public class EnemyAI_Collider : MonoBehaviour
 {
     [Header("冲刺设置")]
@@ -101,6 +104,7 @@ public class EnemyAI_Collider : MonoBehaviour
         // 如果已经冲过目标点（点积为负表示方向相反）
         if (Vector3.Dot(toTarget, dashDirection) < 0)
         {
+            Destroy(gameObject, 3);
             StartBraking();
         }
     }
@@ -108,7 +112,7 @@ public class EnemyAI_Collider : MonoBehaviour
     // 开始刹车
     void StartBraking()
     {
-        currentState = AIState.Braking;
+        //currentState = AIState.Braking;
         Debug.Log("开始刹车");
     }
 
