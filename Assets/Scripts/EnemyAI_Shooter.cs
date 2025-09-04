@@ -31,7 +31,7 @@ public class EnemyAI_Shooter : MonoBehaviour
             firePoint = transform;
 
         // 开始发射协程
-        //StartCoroutine(ShootRoutine());
+        StartCoroutine(ShootRoutine());
     }
 
     // 发射协程 - 每隔随机时间发射一次

@@ -90,6 +90,8 @@ public class Bullet : MonoBehaviour
         {
             bulletCollider.enabled = false;
         }
+
+        targetTransform.GetComponent<CharacterController>()?.IsHit();
     }
 
     // ³õÊ¼»¯×Óµ¯
@@ -99,6 +101,14 @@ public class Bullet : MonoBehaviour
         if (target != null)
         {
             moveDirection = (target.position - transform.position).normalized;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (hitTarget != null)
+        {
+            hitTarget.GetComponent<CharacterController>().UnFreezed();
         }
     }
 }

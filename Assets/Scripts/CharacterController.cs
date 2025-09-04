@@ -9,9 +9,13 @@ public class CharacterController : MonoBehaviour
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志
     private bool isAvoiding = false; // 新增：攻击状态标志
+    private bool isFreezed = false;
 
     void Update()
     {
+        if (isFreezed)
+            return;
+
         // 如果正在攻击，则直接返回，不处理移动输入
         if (isAttacking)
         {
@@ -116,7 +120,14 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
-
+    public void IsHit()
+    {
+        isFreezed = true;
+    }
+    public void UnFreezed()
+    {
+        isFreezed = false;
+    }
     bool IsAnimComplete(string animName)
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -126,5 +137,13 @@ public class CharacterController : MonoBehaviour
     public void OnAttackComplete()
     {
         isAttacking = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision != null && collision.transform.tag == "Collider")
+        {
+
+        }
     }
 }
