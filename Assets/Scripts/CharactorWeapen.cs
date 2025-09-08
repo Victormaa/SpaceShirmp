@@ -6,6 +6,7 @@ public class CharactorWeapen : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public ParticleSystem particle;
+    
     public void ShootBullet()
     {
         // 在这里实现攻击逻辑（例如生成子弹）
