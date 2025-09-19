@@ -119,7 +119,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaIntensity: 0.63
+    - _AlphaIntensity: 0.41
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1

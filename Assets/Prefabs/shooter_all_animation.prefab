@@ -280,12 +280,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344427a0a687b4b44a77fea04494c172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  followRange: 10
+  attackRange: 7
   bulletPrefab: {fileID: 8253188581071315173, guid: 2ec1b50affc3e3d498e4acff50b468e0,
     type: 3}
   targetTransform: {fileID: 0}
   firePoint: {fileID: 1985504207650603751}
   minShootInterval: 4
   maxShootInterval: 7
+  moveSpeed: 0.01
   bulletSpeed: 0.8
 --- !u!135 &7425141183436177171
 SphereCollider:

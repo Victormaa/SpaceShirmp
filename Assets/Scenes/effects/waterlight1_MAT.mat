@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3979357400088849517
+--- !u!114 &-7890862118240875408
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: shelleffect
+  m_Name: waterlight1_MAT
   m_Shader: {fileID: 4800000, guid: 9eceef3fcf9d0d345b8782c4a0d752d1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -61,11 +61,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7963b2bc87c304a4b9f72df26e63f964, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 1b743a74198a2a24ab65d092fc1b088f, type: 3}
+        m_Scale: {x: 3, y: 4}
+        m_Offset: {x: 3.9, y: 1.08}
     - _MainTex1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b1946bb2e0280f14c8751b07a3d9e1ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -119,7 +119,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaIntensity: 0
+    - _AlphaIntensity: 38.9
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -136,22 +136,22 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MainTexUspeed: 0
-    - _MainTexUspeed1: 0
+    - _MainTexUspeed: 0.02
+    - _MainTexUspeed1: -0.76
     - _Metallic: 0
-    - _MianTexVspeed: 0
+    - _MianTexVspeed: 0.2
     - _MianTexVspeed1: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SecTexUspeed: 0
+    - _SecTexUspeed: 0.2
     - _SecTexUspeed1: 0
     - _SecTexVspeed: 0
     - _SecTexVspeed1: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _Softedge: 0
+    - _Softedge: 1.71
     - _Softedge1: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -164,7 +164,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.7924528, g: 0.43111423, b: 0.43111423, a: 0}
+    - _MainColor: {r: 1, g: 0.7077375, b: 0.5251572, a: 0}
     - _MainColor1: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
