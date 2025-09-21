@@ -189533,7 +189533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &972333882
 RectTransform:
   m_ObjectHideFlags: 0
@@ -292063,12 +292063,12 @@ PrefabInstance:
     - target: {fileID: 4046417358079896988, guid: a287db60af9cfdb479ad6646d0aaef78,
         type: 3}
       propertyPath: maxShootInterval
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4046417358079896988, guid: a287db60af9cfdb479ad6646d0aaef78,
         type: 3}
       propertyPath: minShootInterval
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6146496106108864670, guid: a287db60af9cfdb479ad6646d0aaef78,
         type: 3}

@@ -14183,6 +14183,8 @@ MonoBehaviour:
   speed: 2
   target: {fileID: 0}
   lifeTime: 5
+  bubbleExplosion: {fileID: 1834349203133362, guid: c8b86e4804bdc2540aa9b5de1aa9e218,
+    type: 3}
 --- !u!135 &1410201153761954645
 SphereCollider:
   m_ObjectHideFlags: 0

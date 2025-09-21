@@ -24549,7 +24549,7 @@ GameObject:
   - component: {fileID: 8581603642292956501}
   m_Layer: 0
   m_Name: ShrimpShell
-  m_TagString: Untagged
+  m_TagString: ShrimpShell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

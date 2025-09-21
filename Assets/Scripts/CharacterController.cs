@@ -5,7 +5,6 @@ public class CharacterController : MonoBehaviour
     public bool isUseNewDir = false;
     public float moveSpeed = 5f;
     public Animator anim;
-    public bool isBubbleed = false;
 
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志

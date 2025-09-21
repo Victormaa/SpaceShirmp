@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private bool hasHitTarget = false; // 是否击中了目标
     private Transform hitTarget;      // 击中的目标
 
+    public GameObject bubbleExplosion;
 
     void Start()
     {
@@ -73,6 +74,12 @@ public class Bullet : MonoBehaviour
         {
             HitTarget(other.transform);
         }
+
+        if(!hasHitTarget && other.CompareTag("ShrimpShell"))
+        {
+            BubbleExplosion();
+            Destroy(gameObject);
+        }
     }
 
     // 击中目标处理
@@ -102,6 +109,12 @@ public class Bullet : MonoBehaviour
         {
             moveDirection = (target.position - transform.position).normalized;
         }
+    }
+
+    private void BubbleExplosion()
+    {
+        GameObject explosion = Instantiate(bubbleExplosion,transform.position, Quaternion.identity);
+        Destroy(explosion, 1.0f);
     }
 
     private void OnDestroy()
