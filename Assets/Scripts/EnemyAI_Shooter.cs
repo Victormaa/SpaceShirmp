@@ -33,7 +33,6 @@ public class EnemyAI_Shooter : MonoBehaviour
 
     // 内部变量
     private Coroutine shootCoroutine;    // 存储射击协程的引用
-    private UnityEngine.AI.NavMeshAgent navAgent; // 导航组件（如果使用导航网格）
 
     void Start()
     {
@@ -41,17 +40,10 @@ public class EnemyAI_Shooter : MonoBehaviour
         if (firePoint == null)
             firePoint = transform;
 
-        // 尝试获取导航组件（如果使用）
-        navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        if (navAgent != null)
-        {
-            navAgent.speed = moveSpeed;
-        }
 
         // 初始状态设置为IDLE
         ChangeState(ShooterAIState.IDLE);
     }
-
     void Update()
     {
         // 如果没有目标，尝试查找玩家
@@ -92,18 +84,27 @@ public class EnemyAI_Shooter : MonoBehaviour
                 {
                     // 追踪玩家
                     MoveTowardsTarget();
+                    FaceTarget(); // 在移动时也面向目标
                 }
                 break;
 
             case ShooterAIState.ATTACK:
                 // ATTACK状态逻辑：攻击玩家，并在玩家逃跑时追踪
-                if (distanceToTarget > attackRange)
+                if (distanceToTarget > attackRange * 1.2f) // 添加缓冲范围，避免频繁切换
                 {
-                    // 玩家超出攻击范围，切换回FOLLOW状态
+                    // 玩家超出攻击范围+缓冲，切换回FOLLOW状态
                     ChangeState(ShooterAIState.FOLLOW);
                 }
-                // 注意：射击由协程处理，这里只需要面向玩家
-                FaceTarget();
+                else if (distanceToTarget > followRange)
+                {
+                    // 如果玩家跑出追踪范围，直接回到IDLE
+                    ChangeState(ShooterAIState.IDLE);
+                }
+                else
+                {
+                    // 注意：射击由协程处理，这里只需要面向玩家
+                    FaceTarget();
+                }
                 break;
 
             case ShooterAIState.DEAD:
@@ -111,7 +112,6 @@ public class EnemyAI_Shooter : MonoBehaviour
                 break;
         }
     }
-
     // 改变状态的方法
     void ChangeState(ShooterAIState newState)
     {
@@ -125,43 +125,30 @@ public class EnemyAI_Shooter : MonoBehaviour
         // 进入新状态
         EnterState(newState);
     }
-
     // 进入新状态时的处理
     void EnterState(ShooterAIState newState)
     {
         switch (newState)
         {
             case ShooterAIState.IDLE:
-                // 停止移动
-                if (navAgent != null && navAgent.isActiveAndEnabled)
-                    navAgent.isStopped = true;
+                // 停止射击协程
+                if (shootCoroutine != null)
+                {
+                    StopCoroutine(shootCoroutine);
+                    shootCoroutine = null;
+                }
                 break;
-
             case ShooterAIState.FOLLOW:
-                // 开始移动
-                if (navAgent != null && navAgent.isActiveAndEnabled)
-                    navAgent.isStopped = false;
                 break;
-
             case ShooterAIState.ATTACK:
-                // 停止移动，开始射击协程
-                if (navAgent != null && navAgent.isActiveAndEnabled)
-                    navAgent.isStopped = true;
-
                 // 启动射击协程
                 if (shootCoroutine == null)
                     shootCoroutine = StartCoroutine(ShootRoutine());
                 break;
-
             case ShooterAIState.DEAD:
                 // 停止所有协程
                 if (shootCoroutine != null)
                     StopCoroutine(shootCoroutine);
-
-                // 禁用导航
-                if (navAgent != null && navAgent.isActiveAndEnabled)
-                    navAgent.isStopped = true;
-
                 // 播放死亡动画，销毁对象等
                 // StartCoroutine(DieRoutine());
                 break;
@@ -173,12 +160,12 @@ public class EnemyAI_Shooter : MonoBehaviour
         switch (oldState)
         {
             case ShooterAIState.ATTACK:
-                // 停止射击协程
-                if (shootCoroutine != null)
-                {
-                    StopCoroutine(shootCoroutine);
-                    shootCoroutine = null;
-                }
+                //// 停止射击协程
+                //if (shootCoroutine != null)
+                //{
+                //    StopCoroutine(shootCoroutine);
+                //    shootCoroutine = null;
+                //}
                 break;
         }
     }
@@ -187,17 +174,21 @@ public class EnemyAI_Shooter : MonoBehaviour
     {
         if (targetTransform == null) return;
 
-        // 使用导航网格（推荐）
-        if (navAgent != null && navAgent.isActiveAndEnabled)
-        {
-            navAgent.SetDestination(targetTransform.position);
-        }
-        else
-        {
-            // 简单的移动方式（如果没有导航网格）
-            Vector3 direction = (targetTransform.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-        }
+        // 使用Lerp实现平滑移动
+        Vector3 targetPosition = new Vector3(
+            targetTransform.position.x,
+            targetTransform.position.y,
+            transform.position.z // 保持当前Y轴高度          
+        );
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            moveSpeed * Time.deltaTime
+        );
+
+        // 同时面向目标
+        FaceTarget();
     }
     // 面向目标
     void FaceTarget()
@@ -212,22 +203,20 @@ public class EnemyAI_Shooter : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
+
     // 发射协程 - 只在ATTACK状态下运行
     IEnumerator ShootRoutine()
     {
-        while (currentState == ShooterAIState.ATTACK)
-        {
-            // 等待随机时间
-            float waitTime = Random.Range(minShootInterval, maxShootInterval);
-            yield return new WaitForSeconds(waitTime);
-
-            // 如果仍在攻击状态，发射子弹
-            if (currentState == ShooterAIState.ATTACK)
-            {
-                ShootBullet();
-            }
-        }
+        // 等待随机时间
+        float waitTime = Random.Range(minShootInterval, maxShootInterval);
+        yield return new WaitForSeconds(waitTime);
+        // 如果仍在攻击状态，发射子弹
+        if(!targetTransform.GetComponent<CharacterController>().ISFREEZED)
+            ShootBullet();
+        
+        shootCoroutine = StartCoroutine(ShootRoutine());
     }
+
     // 发射子弹的方法
     void ShootBullet()
     {
@@ -248,7 +237,6 @@ public class EnemyAI_Shooter : MonoBehaviour
         StartCoroutine(FlashMuzzle());
         Debug.Log("发射子弹！目标: " + targetTransform.name);
     }
-
     // 简单的枪口闪光效果
     IEnumerator FlashMuzzle()
     {
@@ -263,7 +251,6 @@ public class EnemyAI_Shooter : MonoBehaviour
             Destroy(flash);
         }
     }
-
     // 可视化调试
     void OnDrawGizmosSelected()
     {
@@ -280,7 +267,6 @@ public class EnemyAI_Shooter : MonoBehaviour
             Gizmos.DrawWireSphere(firePoint.position, 0.02f);
         }
     }
-
     // 示例：被攻击时调用
     public void TakeDamage(int damage)
     {

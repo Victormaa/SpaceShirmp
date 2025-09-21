@@ -72,6 +72,8 @@ public class EnemyAI_Collider : MonoBehaviour
     {
         if (currentState != AIState.Idle) return;
 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
         // 计算冲刺方向
         if (target != null)
         {
@@ -113,7 +115,6 @@ public class EnemyAI_Collider : MonoBehaviour
     void StartBraking()
     {
         //currentState = AIState.Braking;
-        Debug.Log("开始刹车");
     }
 
     // 应用刹车力

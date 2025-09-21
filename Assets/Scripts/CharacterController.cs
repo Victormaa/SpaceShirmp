@@ -5,11 +5,13 @@ public class CharacterController : MonoBehaviour
     public bool isUseNewDir = false;
     public float moveSpeed = 5f;
     public Animator anim;
+    public bool isBubbleed = false;
 
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志
     private bool isAvoiding = false; // 新增：攻击状态标志
     private bool isFreezed = false;
+    public bool ISFREEZED { get { return isFreezed; } }
 
     void Update()
     {
@@ -80,18 +82,6 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            //if (idleCount >= 15)
-            //{
-            //    anim.Play("Idle2");
-            //    if (IsAnimComplete("Idle2"))
-            //        idleCount = 0;
-            //}
-            //else
-            //{
-            //    anim.Play("Idle1");
-            //    if (IsAnimComplete("Idle1"))
-            //        idleCount++;
-            //}
             // 如果当前没有播放动画或者上一个动画已经播放完成
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idle1") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("Idle2"))
@@ -116,7 +106,6 @@ public class CharacterController : MonoBehaviour
             else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle2") &&
                      IsAnimComplete("Idle2"))
             {
-                // Idle2播放完成后不需要额外处理，计数器已在上面重置
             }
         }
     }
