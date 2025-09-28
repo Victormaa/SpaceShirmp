@@ -24547,7 +24547,7 @@ GameObject:
   - component: {fileID: 8696492527747938631}
   - component: {fileID: 1171160544124213257}
   - component: {fileID: 8581603642292956501}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ShrimpShell
   m_TagString: ShrimpShell
   m_Icon: {fileID: 0}
@@ -24619,7 +24619,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.020702874
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0.00929712, z: 0.01}
 --- !u!1001 &5174418395040088090
 PrefabInstance:
@@ -24629,6 +24629,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4276233277701793455}
     m_Modifications:
+    - target: {fileID: -9068929085148200868, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24679,11 +24684,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8601482994983644958, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f60b598d7e1b10d4a8650809672e7762, type: 2}
+    - target: {fileID: -8161411757509760183, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7565199186863608818, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7327941638537192894, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b79204c0832b7ff4ab3eb9b33daa8f0b, type: 2}
+    - target: {fileID: -5930867761977623492, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5787901188215089073, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2872169273034911425, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e62eaa0be4431647a6a6c750b27349a, type: 2}
+    - target: {fileID: -1978130848664138767, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1325640236540000138, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
         type: 3}
       propertyPath: m_Name
       value: Shellobject2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202374386489371476, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b047b2a7f07566a43842103ea3f436d8, type: 2}
+    - target: {fileID: 7351803339944605379, guid: 8ccd867f27cf0e44a8b5feff90bc18b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68c78d6714e5a5f4cb5fba2ffa533029, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
