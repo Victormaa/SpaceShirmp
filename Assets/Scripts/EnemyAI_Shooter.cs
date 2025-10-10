@@ -34,8 +34,12 @@ public class EnemyAI_Shooter : MonoBehaviour
     // 内部变量
     private Coroutine shootCoroutine;    // 存储射击协程的引用
 
+    public float originalZ;
+
     void Start()
     {
+        originalZ = this.transform.position.z;
+
         // 初始化
         if (firePoint == null)
             firePoint = transform;
@@ -111,6 +115,7 @@ public class EnemyAI_Shooter : MonoBehaviour
                 // DEAD状态逻辑：通常不需要做任何事情，或者播放死亡动画
                 break;
         }
+        this.transform.position = new Vector3(transform.position.x, transform.position.y, originalZ);
     }
     // 改变状态的方法
     void ChangeState(ShooterAIState newState)
@@ -232,10 +237,6 @@ public class EnemyAI_Shooter : MonoBehaviour
             bulletScript.speed = bulletSpeed;
             bulletScript.target = targetTransform;
         }
-
-        // 简单视觉效果
-        StartCoroutine(FlashMuzzle());
-        Debug.Log("发射子弹！目标: " + targetTransform.name);
     }
     // 简单的枪口闪光效果
     IEnumerator FlashMuzzle()
