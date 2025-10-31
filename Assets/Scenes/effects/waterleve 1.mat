@@ -119,7 +119,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaIntensity: 0.41
+    - _AlphaIntensity: 1.09
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -164,7 +164,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.27672946, g: 0.55345905, b: 0.5032532, a: 0.23137255}
+    - _MainColor: {r: 0.2784314, g: 0.5362505, b: 0.5529412, a: 0.23137255}
     - _MainColor1: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
