@@ -208,7 +208,6 @@ public class EnemyAI_Shooter : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
-
     // 发射协程 - 只在ATTACK状态下运行
     IEnumerator ShootRoutine()
     {
@@ -221,7 +220,6 @@ public class EnemyAI_Shooter : MonoBehaviour
         
         shootCoroutine = StartCoroutine(ShootRoutine());
     }
-
     // 发射子弹的方法
     void ShootBullet()
     {

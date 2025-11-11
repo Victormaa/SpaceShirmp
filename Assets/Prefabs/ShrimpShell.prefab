@@ -24547,7 +24547,7 @@ GameObject:
   - component: {fileID: 8696492527747938631}
   - component: {fileID: 1171160544124213257}
   - component: {fileID: 8581603642292956501}
-  m_Layer: 4
+  m_Layer: 14
   m_Name: ShrimpShell
   m_TagString: ShrimpShell
   m_Icon: {fileID: 0}
