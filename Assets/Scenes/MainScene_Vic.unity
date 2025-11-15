@@ -337308,7 +337308,7 @@ MonoBehaviour:
     - rid: 5918098345984000002
       type: {class: MMF_TMPAlpha, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.TextMeshPro}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1681656245
         Label: TMP Alpha
         ChannelMode: 0
@@ -337529,7 +337529,7 @@ MonoBehaviour:
     - rid: 5918098345984000004
       type: {class: MMF_TMPAlpha, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.TextMeshPro}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -977473406
         Label: TMP Alpha
         ChannelMode: 0
@@ -348335,12 +348335,6 @@ PrefabInstance:
       addedObject: {fileID: 844439083}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a287db60af9cfdb479ad6646d0aaef78, type: 3}
---- !u!1 &1200076849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2190254677227589175, guid: 9c629646cdfd5914aa0af0bc10814957,
-    type: 3}
-  m_PrefabInstance: {fileID: 5251846239528432470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1201577602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4830164590441228, guid: 28f9393441d36134a8536f9b88ecff5d,
@@ -592679,11 +592673,7 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 165502077}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2190254677227589175, guid: 9c629646cdfd5914aa0af0bc10814957,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5251846239528432474}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c629646cdfd5914aa0af0bc10814957, type: 3}
 --- !u!4 &5251846239528432471 stripped
 Transform:
@@ -592691,33 +592681,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5251846239528432470}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &5251846239528432474
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200076849}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!222 &5299626341439606467
 CanvasRenderer:
   m_ObjectHideFlags: 0
