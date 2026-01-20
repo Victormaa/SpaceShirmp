@@ -8,15 +8,31 @@ public class CharacterController : MonoBehaviour
 
     private int idleCount = 0;
     private bool isAttacking = false; // 新增：攻击状态标志
-    private bool isAvoiding = false; // 新增：攻击状态标志
+    private bool isAvoiding = false;  // 新增：攻击状态标志
     private bool isFreezed = false;
-    public bool ISFREEZED { get { return isFreezed; } }
 
+    private Vector3 dodgeDirection = Vector3.zero;
+    public AnimationCurve dodgeCurve;
+    public float dodgeDistance = 3.0f;
+    private float dodgeProcess = 0;
+    public AnimationClip dodgeClip; // 在编辑器里把 Dodge 动画拖进来
+    private float dodgeDuration;
+    private Vector3 dodgeStartPosition;
+
+    void Start()
+    {
+        if (dodgeClip != null)
+        {
+            dodgeDuration = dodgeClip.length;
+        }
+        dodgeDirection = Vector3.up;
+    }
+
+    public bool ISFREEZED { get { return isFreezed; } }
     void Update()
     {
         if (isFreezed)
             return;
-
         // 如果正在攻击，则直接返回，不处理移动输入
         if (isAttacking)
         {
@@ -27,12 +43,22 @@ public class CharacterController : MonoBehaviour
             }
             return;
         }
-
         if (isAvoiding)
         {
-            if (IsAnimComplete("Idle2"))
+            // 累加进度
+            dodgeProcess += Time.deltaTime / dodgeDuration;
+            float eval = dodgeCurve.Evaluate(Mathf.Clamp01(dodgeProcess));
+
+            // 计算目标位置
+            Vector3 targetPos = dodgeStartPosition + (dodgeDirection.normalized * eval * dodgeDistance);
+
+            // 或者简单的 Transform 移动
+            transform.position = targetPos;
+
+            if (dodgeProcess >= 1f)
             {
                 isAvoiding = false;
+                dodgeProcess = 0;
             }
             return;
         }
@@ -47,9 +73,20 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(1))
         {
-            anim.Play("Idle2");
-            isAvoiding = true;
-            return; 
+            Plane virtualPlane = new Plane(-Camera.main.transform.forward, transform.position);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float distanceToPlane;
+            if (virtualPlane.Raycast(ray, out distanceToPlane))
+            {
+                Vector3 hitPoint = ray.GetPoint(distanceToPlane);
+                Vector3 direction = hitPoint - transform.position;
+                dodgeDirection = direction.normalized;
+                anim.Play("Dodge");
+                isAvoiding = true;
+                dodgeProcess = 0;
+                dodgeStartPosition = transform.position;
+                return;
+            }
         }
 
         // 获取输入
